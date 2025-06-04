@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+
+:root {
+  --tw-color-primary: #239b81;
+  --tw-color-secondary: #231e41;
+  --tw-color-accent: #f6eded;
+  --tw-color-success: #59ffa0;
+  --tw-color-danger: #eb4a31;
+  --tw-color-warning: #fbbf24;
+  --tw-color-info: #3b82f6;
+  --tw-color-muted: #9ca3af;
+  --tw-color-background: #f9fafb;
+  --tw-color-surface: #ffffff;
+  --tw-color-border: #e5e7eb;
+  --tw-color-text: #111827;
+  --tw-color-subtle-text: #6b7280;
+  --tw-color-overlay: rgba(0, 0, 0, 0.5);
+}
+
+#app {
+  overflow: hidden;
+}
+
+.logo-text {
+  font-family: "Pacifico", cursive;
+}
+
+.monoton {
+  font-family: "Monoton", sans-serif;
+  font-style: normal;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--tw-color-background);
+  color: var(--tw-color-text);
+  line-height: 1.5;
+}
+
+// Optional: Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--tw-color-muted);
+}
+
+.active {
+  font-weight: 700;
+  color: var(--tw-color-primary);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  .indicator {
+    width: 4px;
+    height: 24px;
+    border-radius: 2px;
+    background-color: transparent;
+    margin-right: 12px;
+    transition: background-color 0.3s;
+  }
+
+  &.menu-active {
+    font-weight: 700;
+    color: var(--tw-color-primary);
+    background-color: var(--tw-color-accent);
+
+    .indicator {
+      background-color: var(--tw-color-primary); // green bar when active
+    }
+  }
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+
+  &.btn-primary {
+    background-color: var(--tw-color-primary);
+    color: white;
+  }
+
+  &.btn-secondary {
+    border: 1px solid var(--tw-color-primary);
+    color: var(--tw-color-primary);
+  }
+}
+
+.material-icons {
+  cursor: pointer;
+  line-height: unset !important;
+}
+
+.p-tablist-active-bar{
+    z-index: 0 !important;
+    display: none !important;
+    background: var(--tw-color-primary) !important;
+}
+
+.p-tab-active{
+    color: var(--tw-color-primary) !important;
+}
+
+.p-fileupload{
+  .p-button{
+    background: var(--tw-color-primary);
+    border: 1px solid var(--tw-color-primary);
+
+    &:not(:disabled):hover{
+        background: var(--tw-color-primary);
+        border: 1px solid var(--tw-color-primary);
+    }
+  }
+}
