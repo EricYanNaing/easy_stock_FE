@@ -32,7 +32,7 @@ router.afterEach(() => {
         isLoading.value = false;
     }, 300);
 });
-
+console.log("VITE_BASE_URL from env:", import.meta.env.VITE_BASE_URL);
 </script>
 
 <template>
