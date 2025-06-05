@@ -1,14 +1,14 @@
 <template>
   <section class="p-10 xl:p-20 booking-wrapper">
     <div class="flex items-center justify-between gap-4 mb-10">
-      <h1 class="text-xl font-bold mb-5">Stocks Management</h1>
+      <h1 class="xl:text-xl font-bold mb-5">Stocks Management</h1>
       <button
         type="button"
         class="border-2 p-2 rounded-lg border-primary text-white bg-primary flex items-center gap-2"
         @click="addmodalHandler"
       >
         <i class="pi pi-plus-circle"></i>
-        Add New Items
+        <span class="hidden xl:block" >Add New Item</span>
       </button>
     </div>
     <div class="card">
@@ -23,7 +23,7 @@
         :globalFilterFields="['name', 'amount', 'unit', 'category']"
       >
         <template #header>
-          <div class="flex justify-between">
+          <div class="flex flex-col xl:flex-row gap-3 justify-between">
             <Button
               type="button"
               icon="pi pi-filter-slash"
@@ -49,13 +49,12 @@
           filterField="name"
           header="Name"
           sortable
-          style="width: 18%"
+          style="width: 15%"
         ></Column>
         <Column
           field="amount"
           filterField="amount"
           header="Amount"
-          style="width: 18%"
         >
         </Column>
 
@@ -63,7 +62,6 @@
           field="unit"
           filterField="unit"
           header="Unit"
-          style="width: 18%"
         >
           <template #body="{ data }">
             <div class="flex items-center gap-2">
@@ -75,7 +73,6 @@
           field="category"
           filterField="category"
           header="Category"
-          style="width: 10%"
         >
           <template #body="{ data }">
             <div class="flex items-center gap-2">
@@ -87,11 +84,16 @@
           field="image"
           filterField="image"
           header="Image"
-          style="width: 18%"
+          style="width: 15%"
         >
         <template #body="{ data }">
             <img :src="data.image || stockImage" alt="image" width="55" class="bg-muted p-2 rounded-full">
           </template>
+        </Column>
+        <Column
+          header="Last Modify Date"
+        >
+        <template #body="{ data }">{{ dayjs(data.updatedAt).format("ddd, DD MMM YYYY") }}</template>
         </Column>
         <Column header="Action" style="min-width: 12rem">
           <template #body="{ data }">

@@ -1,14 +1,14 @@
 <template>
   <section class="p-10 xl:p-20 category-wrapper">
     <div class="flex items-center justify-between gap-4 mb-10">
-      <h1 class="text-xl font-bold mb-5">Category Management</h1>
+      <h1 class="xl:text-xl font-bold mb-5">Category Management</h1>
       <button
         type="button"
         class="border-2 p-2 rounded-lg border-primary text-white bg-primary flex items-center gap-2"
         @click="showAddModal = true"
       >
         <i class="pi pi-plus-circle"></i>
-        Add New Category
+        <span class="hidden xl:block" >Add New Category</span>
       </button>
     </div>
     <div class="card">
@@ -23,7 +23,7 @@
         :globalFilterFields="['name']"
       >
         <template #header>
-          <div class="flex justify-between">
+          <div class="flex flex-col xl:flex-row gap-3 justify-between">
             <Button
               type="button"
               icon="pi pi-filter-slash"
@@ -50,6 +50,11 @@
           header="Name"
           sortable
         ></Column>
+        <Column
+          header="Last Modify Date"
+        >
+        <template #body="{ data }">{{ dayjs(data.updatedAt).format("ddd, DD MMM YYYY") }}</template>
+        </Column>
         <Column header="Action" >
           <template #body="{ data }">
             <div class="flex items-center gap-2">
